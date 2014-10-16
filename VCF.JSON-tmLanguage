@@ -1,0 +1,64 @@
+// [PackageDev] target_format: plist, ext: tmLanguage
+{ 
+  "name": "VCF",
+  "scopeName": "source.vcf",
+  "fileTypes": ["vcf"],
+  "uuid": "9478410e-8e75-47a8-ab68-8c316e426f4f",
+
+  "patterns": [
+
+    {
+      "match": "#.+",
+      "name": "comment"
+    },
+
+    {
+      "match": "\\s[A|G|T|C]+\\s[A|G|T|C]+\\s",
+      "name": "keyword"
+    },
+
+    {
+      "match": ":|\\|",
+      "name": "keyword"
+    },
+
+    {
+      "match": "\\s(\\.)",
+      "name": "keyword"
+    },
+
+
+    {
+      "match": "\\s(rs[\\d]+;?)+",
+      "name": "string"
+    },
+
+    {
+      "match": "ENST[\\d]+",
+      "name": "string"
+    },
+
+    {
+      "match": "(STOP_GAINED|START_LOST|FRAME_SHIFT|STOP_LOST|CHROMOSOME_LARGE_DELETION|RARE_AMINO_ACID|SPLICE_SITE_ACCEPTOR|SPLICE_SITE_DONOR|CODON_CHANGE|CODON_CHANGE_PLUS_CODON_DELETION|CODON_CHANGE_PLUS_CODON_INSERTION|CODON_DELETION|CODON_INSERTION|EXON_DELETED|NON_SYNONYMOUS_CODING|SPLICE_SITE_REGION|SPLICE_SITE_BRANCH|SPLICE_SITE_BRANCH_U12|NON_SYNONYMOUS_STOP|NON_SYNONYMOUS_START|UTR_5_DELETED|UTR_5_PRIME|UTR_3_DELETED|UTR_3_PRIME|START_GAINED|INTRON_CONSERVED|INTRON|SYNONYMOUS_START|SYNONYMOUS_STOP|SYNONYMOUS_CODING|INTRAGENIC|EXON|CDS|UPSTREAM|DOWNSTREAM|REGULATION|MICRO_RNA|INTERGENIC_CONSERVED|INTERGENIC)\\(",
+      "captures": { "1": { "name": "entity.name.class" } }
+    },
+
+
+    {
+      "match": "(\\w+)=",
+      "captures": { "1": { "name": "storage.type" } }
+    },
+
+    {
+      "match": "chr\\d+",
+      "name": "constant.language"
+    },
+
+
+    {
+      "match": "([\\d]+\\.?[\\d]*)",
+      "captures": { "1": { "name": "constant.language" } }
+    }
+    
+  ]
+}
